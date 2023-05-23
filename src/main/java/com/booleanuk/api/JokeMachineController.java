@@ -1,6 +1,7 @@
 package com.booleanuk.api;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,5 +33,10 @@ public class JokeMachineController {
     @GetMapping("/number")
     public int numberOfJokes() {
         return this.jokes.size();
+    }
+
+    @GetMapping("/joke/{id}")
+    public String getSingleJoke(@PathVariable Integer id){
+        return this.jokes.get(id);
     }
 }
